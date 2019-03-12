@@ -60,7 +60,7 @@ or the length of time before consent expires.
 ### Conveying User Agent Registered User Consent.
 
 There should be some standardisation on a low-entropy request header signal, which could be an existing header in widespread use like DNT,
-or a specific cookie name such at the IAB EU's `euconsent`. Another avenue could maybe be explored by extending the cookie "prefix" options
+or a specific cookie name such at the IAB EU's `euconsent` cookie. Another avenue could maybe be explored by extending the cookie "prefix" options
 described in "[Cookies: HTTP State Management Mechanism draft-ietf-httpbis-rfc6265bis-02](https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-02#page-14)". 
 For example here is a way to encode a consent indication cookie:
 ```
