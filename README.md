@@ -64,7 +64,7 @@ or a specific cookie name such at the IAB EU's `euconsent`. Another avenue could
 described in "[Cookies: HTTP State Management Mechanism draft-ietf-httpbis-rfc6265bis-02](https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-02#page-14)". 
 For example here is a way to encode a consent indication cookie:
 ```
-Set-Cookie: __Consent-eprivacy=1,5,6; Expires=Sun, 06 Nov 1994 08:49:37 GMT
+Set-Cookie: __Consent-eprivacy=1,5,6; Expires=Sun, 06 Nov 2019 08:49:37 GMT
 ```
 The value `1,5,6` indicates the set of purposes agreed to by this user, i.e. an index into the PurposeType array.
 
