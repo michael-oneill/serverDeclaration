@@ -47,6 +47,7 @@ Script can execute the following JavaScript function to determine the durations 
 
 ```
 navigator.retainStorage.Get()
+```
 
 ## Prior Art
 *  The Clear-Site-Data API defines a mechanism to remove data from local storage, 
