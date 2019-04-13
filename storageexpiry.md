@@ -31,23 +31,65 @@ and a JavaScript API so script libraries can offer the same functionality.
 ## Retain-Storage header
 Sites can ensure that all storage is removed after a defined period by returning the `Retain-Storage` response header.
 
-`Retain-Storage: max-age=3600 ,"cache", "cookies", "storage", "executionContexts"`
+`Retain-Storage: max-age=3600 ,"cache", "cookies", "storage"`
 
-The categories of storage are the same as defined for Clear-Site-Data.
+The categories of storage are the same as defined for Clear-Site-Data, other than "executionContexts" which would not make sense.
 
 User agents would then ensure that all the specified storage is deleted when the number of seconds indicated by the `Max-Age` attribute
 after the time when the `Retain-Storage` header was received. 
-Subsequent ``Retain-Storage` headers could only result in lowering the associated duration i.e. it cannot be increased after it has been set.
+Subsequent `Retain-Storage` headers could only result in lowering the associated duration i.e. it cannot be increased after it has been set
+by a previous `Retain-Storage` header.
 
 Once the duration has been exceeded the relevant storage MUST be deleted at least before a request is sent to the associated origin, 
-or any associated browsing context starts is initialised.
+or any associated browsing context is initialised.
 
 ## JavaScript API
+### Determine current duration limits.
 Script can execute the following JavaScript function to determine the durations associated with each storage category for the script origin.
 
 ```
-navigator.retainStorage.Get()
+var retainStorageObject = navigator.retainStorage.Get()
 ```
+
+The returned object would contain the duration currently in effect for each storage category type:
+```
+{
+    [
+        {   
+            "type": "storage",
+            "duration": "3600"
+        },
+        {   
+            "type": "cache",
+            "duration": "3600"
+        }
+    ]
+}
+```
+### Change current duration limits
+Script can change the duration of storage category types, 
+but only if the browsing context was initialised without an associated `Retain-Storage` header.
+```
+navigator.retainStorage.Update(dictionary);
+```
+where `dictionary` is an object indicating the required duration for specified category types:
+```
+{
+    [
+        {   
+            "type": "storage",
+            "duration": "3600"
+        },
+        {   
+            "type": "cache",
+            "duration": "3600"
+        } 
+    ]
+}
+
+```
+
+The `Update` function can only reduce the duration for the indicated types, whether they 
 
 ## Prior Art
 *  The Clear-Site-Data API defines a mechanism to remove data from local storage, 
