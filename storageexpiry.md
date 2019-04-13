@@ -11,7 +11,7 @@ This document describes a procedure whereby the data can be automatically delete
 
 This would allow applications to store data, such as cookies or local storage, for short periods to support required functionality such as  "session state", but ensure this data is not retained after a defined period. 
 
-The cookie API already contain such a mechanism, i.e. the `expires` or `max-age` attribute, this API extends that to all origin controlled storage. 
+The cookie API already contain such a mechanism, i.e. the `expires` or `max-age` attribute, this API extends a similar mchanism to all origin controlled storage. 
 
 It is envisioned that user agent suppliers will specify reasonable defaults for the duration of stored data where servers do not include the response header, as part of their priacy and personal data protecting function.
 
