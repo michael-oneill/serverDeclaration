@@ -3,6 +3,20 @@ Mike O'Neill, Febuary 2019
 
 ©2019, Baycloud Systems Ltd. All rights reserved.
 
+## Introduction
+Web applications can ensure that all data associated with a controlled origin is deleted by using the Clear Site Data API. 
+By including a `Clear-Site-Data` header in a response all or particular categories of stored data can be immediately removed, including cookies, local storage, indexed database storage, javascript execution contexts, the client-side cache etc.
+
+This document describes a procedure whereby the data can be automatically deleted after a specified period, without requiring a further request to the controlling origin.
+
+This would allow applications to store data, such as cookies or local storage, for short periods to support required functionality such as  "session state", but ensure this data is not retained after a defined period. 
+
+The cookie API already contain such a mechanism, i.e. the `expires` or `max-age` attribute, this API extends that to all origin controlled storage. 
+
+It is envisioned that user agent suppliers interested in protecting the privacy and personal data of their users will specify reasonable defaults where servers do not include the response header.
+
+
+
 Web applications store data locally on a user’s computer in order to provide functionality while the user is offline, and to increase performance when the user is online. These local caches have significant advantages for both users and developers, but present risks as well.
 
 A user’s data is both sensitive and valuable; web developers ought to take reasonable steps to protect it. One such step would be to encrypt data before storing it. Another would be to remove data from the user’s machine when it is no longer necessary (for example, when the user signs out of the application, or deletes their account).
