@@ -24,6 +24,16 @@ Sites can ensure that all storage is removed after a defined period by returning
 
 The categories of storage are the same as defined for Clear-Site-Data.
 
+User agents would then ensure that all the specified storage is deleted when the number of seconds indicated by the `Max-Age` attribute after the time when the `Retain-Storage` header was received. Subsequent ``Retain-Storage` headers could only result in lowering the associated duration i.e. it cannot be increased after it has been set.
+
+After the duration has been exceeded the relevant storage MUST be deleted at least before a request is sent to the associted origin, or any associated browsing context starts is initialised.
+
+## Javascript API
+Script can execute the following JavaScript function to determine the durations associated with each storage cattegory for the script origin.
+
+```
+navigator.retainStorage.Get()
+
 ## Prior Art
 *  The Clear-Site-Data API defines a mechanism to remove data from local storage, giving web developers the ability to clear out a user’s local cache of data via the Clear-Site-Data HTTP response header. "[Clear Site Data](https://www.w3.org/TR/clear-site-data/)"
 
