@@ -13,14 +13,12 @@ This would allow applications to store data, such as cookies or local storage, f
 
 The cookie API already contain such a mechanism, i.e. the `expires` or `max-age` attribute, this API extends that to all origin controlled storage. 
 
-It is envisioned that user agent suppliers interested in protecting the privacy and personal data of their users will specify reasonable defaults where servers do not include the response header.
+It is envisioned that user agent suppliers will specify reasonable defaults for the duration of stored data where servers do not include the response header, as part of their priacy and personal data protecting function.
 
+Site authors can remove data from a number of storage mechanisms via JavaScript, but others are difficult to deal with reliably. Data stored as objects in `IndexdedDB` transactional databases are hard to detect outside of the scripts that use them. HttpOnly cookies are inaccessible to script, only removable via Set-Cookie headers in HTTP responses. This document defines an HTTP based mechanism to specify durations for all storage, and a JavaScript API so script libraries can offer the same functionality.
 
+## Retain-Storage header
+Sites can ensure that all storage is removed after a defined period by returning the `Retain-Storage` response header.
 
-Web applications store data locally on a user’s computer in order to provide functionality while the user is offline, and to increase performance when the user is online. These local caches have significant advantages for both users and developers, but present risks as well.
+`Retain-Storage: max-age=3600 ,"cache", "cookies", "storage", "executionContexts"
 
-A user’s data is both sensitive and valuable; web developers ought to take reasonable steps to protect it. One such step would be to encrypt data before storing it. Another would be to remove data from the user’s machine when it is no longer necessary (for example, when the user signs out of the application, or deletes their account).
-
-Site authors can remove data from a number of storage mechanisms via JavaScript, but others are difficult to deal with reliably. Consider cookies, for instance, which can be partially cleared via JavaScript access to document.cookie. HttpOnly cookies, however, can only be removed via a number of Set-Cookie headers in an HTTP response. This, of course, requires exhaustive knowledge of all the cookies set for a host, which can be complicated to ascertain. Cache is still harder; no imperative interface to a browser’s network cache exists, period.
-
-This document defines a new mechanism to deal with removing data from these and other types of local storage, giving web developers the ability to clear out a user’s local cache of data via the Clear-Site-Data HTTP response header.
