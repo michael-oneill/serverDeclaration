@@ -25,7 +25,7 @@ Sites can ensure that all storage is removed after a defined period by returning
 The categories of storage are the same as defined for Clear-Site-Data.
 
 ## Prior Art
-*  Clear-Site-Data defines a mechanism to remove data from local storage, giving web developers the ability to clear out a user’s local cache of data via the Clear-Site-Data HTTP response header. "[Clear Site Data](https://www.w3.org/TR/clear-site-data/)"
+*  The Clear-Site-Data API defines a mechanism to remove data from local storage, giving web developers the ability to clear out a user’s local cache of data via the Clear-Site-Data HTTP response header. "[Clear Site Data](https://www.w3.org/TR/clear-site-data/)"
 
 
 *   Mike West has proposed a mechanism which allows HTTP servers to maintain stateful sessions with HTTP user agents, addressing some of the security and privacy considerations of HTTP Cookies. "[HTTP State Tokens](https://mikewest.github.io/http-state-tokens/draft-west-http-state-tokens.html)" 
