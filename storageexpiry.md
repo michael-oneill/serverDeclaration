@@ -1,4 +1,4 @@
-Transparency via a Machine-readable Server Identity and Purpose Descriptor.
+### Transparency via a Machine-readable Server Identity and Purpose Descriptor.
 Mike O'Neill, Febuary 2019
 
 ©2019, Baycloud Systems Ltd. All rights reserved.
