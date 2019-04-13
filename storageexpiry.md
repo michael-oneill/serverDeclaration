@@ -20,5 +20,5 @@ Site authors can remove data from a number of storage mechanisms via JavaScript,
 ## Retain-Storage header
 Sites can ensure that all storage is removed after a defined period by returning the `Retain-Storage` response header.
 
-`Retain-Storage: max-age=3600 ,"cache", "cookies", "storage", "executionContexts"
+`Retain-Storage: max-age=3600 ,"cache", "cookies", "storage", "executionContexts"`
 
