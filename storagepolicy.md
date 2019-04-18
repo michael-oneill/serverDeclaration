@@ -67,9 +67,9 @@ the user agent MUST alert the user in some way, such as with a permission prompt
 similar to the prompt resulting from a call by a nested browsing context to the `Storage Access` 
 API in webkit's Intelligent Tracking Prevention (ITP) feature.
 
-If a site determines that a user has given their consent to storage access, 
+If a site determines that a user has already given their consent to storage access, 
 then it may be able to avoid a separate prompt resulting from a less restrictive `Storage-Policy` 
-by specifying a verifiable and universal consent signal such as `DNT` or its replacement.
+by using an API to set a verifiable and universal consent signal, such as `DNT` or its replacement.
 
 If a top level browsing context has a `Storage-Policy` header in its initiating response
 then subresources (other than those indicated by an `allow-origins` attribute),
