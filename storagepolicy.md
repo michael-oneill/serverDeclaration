@@ -11,7 +11,7 @@ have been used to enable invisible long term surveillance.
 This has long been recognised by privacy regulators and legislators, 
 and laws have been introduced requiring web sites to manage storage in privacy protective ways, 
 for example by requiring prior user consent before storage items, such as cookies, 
-are used, unless they are for an exempted purpose.
+are used (unless they are for an exempted purpose).
 
 Unfortunately sites are usually built from a variety of components, such as embedded elements and external scripts,
 often supplied by third-party service providers, and these can employ user agent storage outside the control, and sometimes
