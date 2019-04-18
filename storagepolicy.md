@@ -87,7 +87,7 @@ in the response to the next HTTP request to the origin after the user has stoppe
 
 ## JavaScript API
 ### Determine current duration limits.
-Script can execute the following JavaScript function to determine the durations associated with each storage category for the script origin.
+Script can execute the following JavaScript function to determine the storage durations associated with the script origin.
 
 ```
 var storagePolicyObject = navigator.storagePolicy.Get()
@@ -96,12 +96,12 @@ var storagePolicyObject = navigator.storagePolicy.Get()
 The returned object would contain the duration currently in effect:
 ```
 {
-          maxAge: 86,400,
+          maxAge: 86400,
           inactivityTimeout: 3600
 }
 ```
 ### Change current duration limits
-Script can change the duration of storage category types, 
+Script can change the current storage policy duration, 
 but only if the browsing context was initialised **without** an associated `Storage-Policy` header.
 If there was a `Storage-Policy` header the user agent MUST ignore the call.
 ```
