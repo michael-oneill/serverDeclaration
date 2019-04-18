@@ -56,13 +56,13 @@ Where the **storage policy attributes** have the following meaning
 
 | attribute        | default    | description  |
 | :-------------: |:-------------:| :----- |
-| max-age      | 86,400 | Number of seconds after header received before all top-level origin storage is cleared, irrespective of user activity. |
-| inactivity-timeout      | 3600 | Number of seconds of no user activity before all top-level origin storage is cleared. The timer is restarted (unless expired) on detection of user activity. |
+| max-age      | 86,400 (24 hours)| Number of seconds after header received before all top-level origin storage is cleared, irrespective of user activity. |
+| inactivity-timeout      | 3600 ( 1 hour)| Number of seconds of no user activity before all top-level origin storage is cleared. The timer is restarted (unless expired) on detection of user activity. |
 | allow-cookies | 'none' |   space separated list of names of cookies that are not to be deleted by this mechanism, or 'none' if all cookies are to be deleted.|
 | allow-origins | 'none' |   space separated list of origins that can receive and place cookies, and whose browsing contexts can access other storage, or 'none' if no subresource may access storage. |
 
-If a `Storage-Policy` header contains an attribute specifying a **less restrictive** storage policy, 
-i.e. a higher value than the default for the `inactivity-timeout` or `max-age` attributes,
+If a `Storage-Policy` header contains an attribute specifying a **less restrictive** storage policy than the default, 
+i.e. a higher value for the `inactivity-timeout` or `max-age` attributes, or an `allow-origins` other than `'none'`,
 the user agent MUST alert the user in some way, such as with a permission prompt
 similar to the prompt resulting from a call by a nested browsing context to the `Storage Access` 
 API in webkit's Intelligent Tracking Prevention (ITP) feature.
